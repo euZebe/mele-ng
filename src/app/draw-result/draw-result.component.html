@@ -1,9 +1,15 @@
-<p>
-  draw-result works!
-</p>
+<div *ngIf="draw">
 
-<div>
-  <label data-testid="drawID">{{drawID}}</label>
+  <label>Created on {{ draw.creationDate | date: "dd/MM/yyyy" }}</label>
+
+  <div data-testid="assignment" *ngFor="let assignment of draw.assignments">
+    <strong>{{ assignment.from.name }}</strong> gives to <strong>{{ assignment.to.name }}</strong>
+  </div>
+
+</div>
+
+<div *ngIf="!draw">
+  <h4>No draw found for the ID {{drawID}}</h4>
 </div>
 
 <a (click)="goBack()">Back</a>
