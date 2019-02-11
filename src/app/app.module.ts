@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DrawResultComponent } from './draw-result/draw-result.component';
 import { AssignmentResultComponent } from './assignment-result/assignment-result.component';
 import { HomeComponent } from './home/home.component';
+import { DrawFormComponent } from './draw-form/draw-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrawResultComponent,
     AssignmentResultComponent,
-    HomeComponent
+    HomeComponent,
+    DrawFormComponent
   ],
   imports: [
     BrowserModule,
