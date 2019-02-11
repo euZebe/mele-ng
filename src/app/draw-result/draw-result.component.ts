@@ -13,13 +13,17 @@ export class DrawResultComponent implements OnInit {
   drawID: string;
   draw: Draw;
 
-  constructor(private location: Location, private route: ActivatedRoute, private drawService: DrawService) {
+  constructor(
+    private location: Location,
+    private route: ActivatedRoute,
+    private drawService: DrawService
+  ) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.drawID = params.id;
-      this.drawService.getDraw(params.id).subscribe(draw => this.draw = draw);
+      this.drawService.getDraw(params.id).subscribe(draw => (this.draw = draw));
     });
   }
 
