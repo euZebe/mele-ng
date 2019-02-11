@@ -7,6 +7,7 @@ import { DrawResultComponent } from './draw-result/draw-result.component';
 import { AssignmentResultComponent } from './assignment-result/assignment-result.component';
 import { HomeComponent } from './home/home.component';
 import { DrawFormComponent } from './draw-form/draw-form.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DrawFormComponent } from './draw-form/draw-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

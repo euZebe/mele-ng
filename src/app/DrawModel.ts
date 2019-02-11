@@ -3,6 +3,7 @@ export class Person {
 }
 
 export class Assignment {
+  id: string;
   from: Person;
   to: Person;
 }

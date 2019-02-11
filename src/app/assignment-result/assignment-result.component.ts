@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
+import {Assignment} from '../DrawModel';
+import {DrawService} from '../draw.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-assignment-result',
@@ -7,11 +10,21 @@ import {Location} from '@angular/common';
   styleUrls: ['./assignment-result.component.css']
 })
 export class AssignmentResultComponent implements OnInit {
+  assignment: Assignment;
 
-  constructor(private location: Location) {
+  constructor(
+    private location: Location,
+    private route: ActivatedRoute,
+    private drawService: DrawService
+  ) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.drawService
+        .getAssignment(params.id)
+        .subscribe(assignment => (this.assignment = assignment));
+    });
   }
 
   goBack() {

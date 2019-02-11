@@ -1,5 +1,17 @@
+<div>
+  <label>
+    draw ID
+    <input [(ngModel)]="drawID" />
+  </label>
+  <a routerLink="/draw/{{ drawID }}">View draw</a>
+</div>
+
+<div>
+  <label>
+    assignment ID
+    <input [(ngModel)]="assignmentID" />
+  </label>
+  <a routerLink="/assignment/{{assignmentID}}">View assignment</a>
+</div>
 
 <a routerLink="/new-draw">New draw</a>
-<a routerLink="/draw/1i3jdh2">View draw</a>
-<a routerLink="/assignment/zei1d3à24">View assignment</a>
-
