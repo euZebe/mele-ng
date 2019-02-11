@@ -1,17 +1,11 @@
 <div>
-  <label>
-    draw ID
-    <input [(ngModel)]="drawID" />
-  </label>
+  <input [(ngModel)]="drawID" placeholder="draw ID" />
   <a routerLink="/draw/{{ drawID }}">View draw</a>
 </div>
 
 <div>
-  <label>
-    assignment ID
-    <input [(ngModel)]="assignmentID" />
-  </label>
-  <a routerLink="/assignment/{{assignmentID}}">View assignment</a>
+  <input [(ngModel)]="assignmentID" placeholder="assignment ID" />
+  <a routerLink="/assignment/{{ assignmentID }}">View assignment</a>
 </div>
 
 <a routerLink="/new-draw">New draw</a>

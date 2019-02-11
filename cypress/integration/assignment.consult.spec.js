@@ -3,7 +3,7 @@ describe("assignment consultation", () => {
     const anyID = "ass1";
 
     cy.visit("/");
-    cy.getByLabelText("assignment ID").type(anyID);
+    cy.getByPlaceholderText("assignment ID").type(anyID);
     cy.getByText(/view assignment/i).click();
     cy.url().should("eq", `${Cypress.config().baseUrl}/assignment/${anyID}`);
 

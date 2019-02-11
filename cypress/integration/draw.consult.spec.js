@@ -2,7 +2,7 @@ describe('draw consultation', () => {
   it('should allow  to view draw details and go back', () => {
     const anyID = "1i3jdh2";
     cy.visit('/');
-    cy.getByLabelText('draw ID').type(anyID);
+    cy.getByPlaceholderText('draw ID').type(anyID);
     cy.getByText(/view draw/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/draw/${anyID}`);
 
