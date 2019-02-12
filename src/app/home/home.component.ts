@@ -14,7 +14,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(value: any): void {
+  onSubmitAssignmentForm(value: any): void {
     this.router.navigate([`/assignment/${value.assignmentID}`]);
+  }
+
+  onSubmitDrawForm(value: any): void {
+    this.router.navigate([`/draw/${value.drawID}`]);
   }
 }
