@@ -1,12 +1,12 @@
 <div>
-  <input [(ngModel)]="drawID" placeholder="draw ID"/>
+  <input [(ngModel)]="drawID" placeholder="draw ID" name="drawID"/>
   <a routerLink="/draw/{{ drawID }}">View draw</a>
 </div>
 
-<div>
-  <input [(ngModel)]="assignmentID" placeholder="assignment ID"/>
-  <a routerLink="/assignment/{{ assignmentID }}">View assignment</a>
-</div>
+<form #assignmentForm="ngForm" (ngSubmit)="onSubmit(assignmentForm.value)">
+  <input ngModel placeholder="assignment ID" name="assignmentID"/>
+  <a (click)="onSubmit(assignmentForm.value)">View assignment</a>
+</form>
 
 <div>
   <a routerLink="/new-draw">New draw</a>
