@@ -1,4 +1,9 @@
-div {
+#home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#home > div {
   background-color: #bbb4;
   display: flex;
   flex-direction: row;
