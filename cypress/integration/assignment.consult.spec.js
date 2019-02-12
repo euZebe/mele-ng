@@ -14,4 +14,10 @@ describe("assignment consultation", () => {
     cy.getByText(/back/i).click();
     cy.url().should("eq", `${Cypress.config().baseUrl}/`);
   });
+
+  it('shoud display an error message when no assignment is found for the given ID', () => {
+    const anInvalidID = 'sdfosd';
+    cy.visit(`/assignment/${anInvalidID}`);
+    cy.getByText(`No assignment found for the ID ${anInvalidID}`);
+  });
 });

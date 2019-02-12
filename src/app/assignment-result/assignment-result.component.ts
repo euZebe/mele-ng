@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AssignmentResultComponent implements OnInit {
   assignment: Assignment;
+  assignmentID: string;
 
   constructor(
     private location: Location,
@@ -21,6 +22,7 @@ export class AssignmentResultComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.assignmentID = params.id;
       this.drawService
         .getAssignment(params.id)
         .subscribe(assignment => (this.assignment = assignment));
