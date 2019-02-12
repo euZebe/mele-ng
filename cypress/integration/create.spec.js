@@ -14,7 +14,12 @@ describe("From home page", () => {
     cy.get("input[type=checkbox]").each(c => c.click());
 
     cy.getByText(/blend/i).click();
-    cy.url().should('eq', `${Cypress.config().baseUrl}/draw/df13sd73`);
+    cy.url().should('match', new RegExp(`^${Cypress.config().baseUrl}/draw/`));
+
+    cy.getAllByTestId('assignment').should('have.length', 3);
+
+    cy.getByText(/back/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
 
   it("should be possible do cancel draw creation and go back to home", () => {

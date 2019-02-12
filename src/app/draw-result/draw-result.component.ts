@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Location} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {DrawService} from '../draw.service';
 import {Draw} from '../DrawModel';
@@ -14,7 +13,6 @@ export class DrawResultComponent implements OnInit {
   draw: Draw;
 
   constructor(
-    private location: Location,
     private route: ActivatedRoute,
     private drawService: DrawService
   ) {
@@ -25,9 +23,5 @@ export class DrawResultComponent implements OnInit {
       this.drawID = params.id;
       this.drawService.getDraw(params.id).subscribe(draw => (this.draw = draw));
     });
-  }
-
-  goBack() {
-    this.location.back();
   }
 }

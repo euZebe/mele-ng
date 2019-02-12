@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
+import { generate } from 'shortid';
 import {Assignment, Draw, Person} from './DrawModel';
 
 @Injectable({
@@ -38,9 +39,17 @@ export class DrawService {
     );
   }
 
-  generateDraw(participants: string[], allowedAssignments: boolean[][]): Observable<Draw> {
-    const draw = new Draw('1', [], new Date());
+  generateDraw(participantNames: string[], allowedAssignments: boolean[][]): Observable<Draw> {
+    // FIXME: deal with allowedAssignments
+    const participants = participantNames.map(name => new Person(name));
+    const assignments = participants.map((p, index) => ({
+      id: generate(),
+      from: p,
+      to: index === 0 ? participants[participants.length - 1] : participants[index - 1]
+    }));
+    const draw = new Draw(generate(), assignments, new Date());
     this.draws.push(draw);
+    console.log('creating new draw', JSON.stringify(draw));
     return of(draw);
   }
 }
