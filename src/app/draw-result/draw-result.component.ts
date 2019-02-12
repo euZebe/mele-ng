@@ -5,7 +5,7 @@ import {DrawService} from '../draw.service';
 import {Draw} from '../DrawModel';
 
 @Component({
-  selector: 'app-draw-result',
+  selector: 'mele-draw-result',
   templateUrl: './draw-result.component.html',
   styleUrls: ['./draw-result.component.css']
 })

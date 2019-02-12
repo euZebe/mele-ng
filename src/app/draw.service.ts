@@ -37,4 +37,10 @@ export class DrawService {
         .find(assignment => assignment.id === assignmentID)
     );
   }
+
+  generateDraw(participants: string[], allowedAssignments: boolean[][]): Observable<Draw> {
+    const draw = new Draw('1', [], new Date());
+    this.draws.push(draw);
+    return of(draw);
+  }
 }

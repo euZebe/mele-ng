@@ -1,5 +1,37 @@
-<p>
-  draw-form works!
-</p>
+<div>
+  <input
+    placeholder="Participant name"
+    [(ngModel)]="typedName"
+    (keyup.enter)="addParticipant(typedName)"
+  />
+  <button (click)="addParticipant(typedName)">Add participant</button>
+</div>
 
+<h2>Allowed assignments</h2>
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th
+        class="name-as-header"
+        *ngFor="let participant of participants"
+        data-testid="participant-item"
+      >
+        {{ participant }}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let participant of participants; let j = index; let odd=odd;" [class.odd]="odd">
+      <td>{{ participant }}</td>
+      <td *ngFor="let p2 of participants; let i = index">
+        <input *ngIf="i !== j" type="checkbox" (click)="allow(i, j)" [checked]="allowedAssignments[j][i]"/>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<button (click)="blend()" [disabled]="!allRowsChecked()">Blend</button>
 <a routerLink="">Cancel</a>

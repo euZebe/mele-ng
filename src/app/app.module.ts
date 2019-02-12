@@ -8,6 +8,7 @@ import { AssignmentResultComponent } from './assignment-result/assignment-result
 import { HomeComponent } from './home/home.component';
 import { DrawFormComponent } from './draw-form/draw-form.component';
 import {FormsModule} from '@angular/forms';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {FormsModule} from '@angular/forms';
     DrawResultComponent,
     AssignmentResultComponent,
     HomeComponent,
-    DrawFormComponent
+    DrawFormComponent,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,15 @@
 export class Person {
-  name: string;
+  constructor(public name: string) {}
 }
 
 export class Assignment {
-  id: string;
-  from: Person;
-  to: Person;
+  constructor(public id: string, public from: Person, public to: Person) {}
 }
 
 export class Draw {
-  id: string;
-  assignments: Assignment[];
-  creationDate?: Date;
+  constructor(
+    public id: string,
+    public assignments: Assignment[],
+    public creationDate?: Date
+  ) {}
 }

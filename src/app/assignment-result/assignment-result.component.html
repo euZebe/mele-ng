@@ -1,11 +1,11 @@
 <div *ngIf="assignment">
-  <span data-testid="from">{{assignment.from.name}}</span>
+  <span data-testid="from">{{ assignment.from.name }}</span>
   gives to
-  <span data-testid="to">{{assignment.to.name}}</span>
+  <span data-testid="to">{{ assignment.to.name }}</span>
 </div>
 
-<div *ngIf="!assignment">
-  <h4>No assignment found for the ID {{assignmentID}}</h4>
-</div>
+<mele-error-message *ngIf="!assignment">
+  No assignment found for the ID {{ assignmentID }}a
+</mele-error-message>
 
 <a (click)="goBack()">Back</a>

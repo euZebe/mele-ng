@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  table-layout: fixed;
+  width: 90vw;
+}
+
+.odd{
+  background-color: #f4f4f4;
+}
+
+td:not(:first-child) {
+  text-align: center;
+}
+
+tr > td:first-child {
+  font-weight: bold;
+}
+
+tr {
+  text-transform: capitalize;
+}

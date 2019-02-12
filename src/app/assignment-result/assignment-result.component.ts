@@ -5,7 +5,7 @@ import {DrawService} from '../draw.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-assignment-result',
+  selector: 'mele-assignment-result',
   templateUrl: './assignment-result.component.html',
   styleUrls: ['./assignment-result.component.css']
 })
