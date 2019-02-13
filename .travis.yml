@@ -12,7 +12,7 @@ cache:
 
 before_script:
   - yarn build
-  - yarn angular-http-server --path dist/mele-ng &
+  - yarn angular-http-server --path dist/mele-ng -p 4200 &
 script:
   - yarn cy:run -- --record
 after_script:
