@@ -11,7 +11,8 @@ cache:
     - ~/.cache
 
 before_script:
-  - npm start &
+  - yarn build
+  - yarn angular-http-server --path dist/mele-ng &
 script:
   - yarn cy:run -- --record
 after_script:
