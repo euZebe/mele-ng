@@ -11,9 +11,6 @@ cache:
     - ~/.cache
 
 before_script:
-  - npm start &
+  - npm start & wait-on http://localhost:4200
 script:
-  - npm run cy:run -- --record
-  # after all tests finish running we need
-  # to kill all background jobs (like "npm start &")
-  - kill $(jobs -p) || true
+  - yarn cy:run -- --record
