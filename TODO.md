@@ -1,0 +1,2 @@
+- don't display "no data found..." when data is loading
+- extract server URL from draw.service (use an env variable + env.dev.json / env.prod.json, default is dev)

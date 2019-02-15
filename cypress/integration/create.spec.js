@@ -1,5 +1,5 @@
 describe("From home page", () => {
-  it("should be possible to create a new draw", () => {
+  it('should display an error message while creating an incomplete draw', () => {
     cy.visit("/");
     cy.getByText(/new draw/i).click();
     cy.url().should("eq", `${Cypress.config().baseUrl}/new-draw`);
@@ -13,6 +13,14 @@ describe("From home page", () => {
 
     cy.get("input[type=checkbox]").each(c => c.click());
 
+    cy.getByText(/blend/i).click();
+
+    // missing name => error messagew
+    cy.url().should("eq", `${Cypress.config().baseUrl}/new-draw`);
+    cy.queryByTestId("errorMessage").should("exist");
+
+    // validation OK => creation
+    cy.getByPlaceholderText(/draw name/i).type("Noël 2019");
     cy.getByText(/blend/i).click();
     cy.url().should('match', new RegExp(`^${Cypress.config().baseUrl}/draw/`));
 

@@ -1,7 +1,7 @@
 <div *ngIf="assignment">
-  <span data-testid="from">{{ assignment.from.name }}</span>
+  <span data-testid="from">{{ assignment.from }}</span>
   gives to
-  <span data-testid="to">{{ assignment.to.name }}</span>
+  <span data-testid="to">{{ assignment.to }}</span>
 </div>
 
 <mele-error-message *ngIf="!assignment">

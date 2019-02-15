@@ -9,8 +9,11 @@ import {DrawService} from '../draw.service';
 })
 export class DrawFormComponent implements OnInit {
   participants: string[] = [];
-  typedName: string;
+  typedDrawName: string;
+  typedParticipantName: string;
   allowedAssignments: boolean[][];
+
+  errors: { constraints: any }[];
 
   constructor(private router: Router, private drawService: DrawService) {
   }
@@ -22,23 +25,32 @@ export class DrawFormComponent implements OnInit {
   addParticipant(value: string): void {
     this.allowedAssignments.push(Array(this.participants.length).fill(false));
     this.participants.push(value);
-    this.typedName = '';
+    this.typedParticipantName = '';
     this.allowedAssignments.forEach(row => row.push(false));
   }
 
   blend() {
-    this.drawService.generateDraw(this.participants, this.allowedAssignments).subscribe(draw => {
+    this.drawService.generateDraw(this.typedDrawName, this.participants, this.allowedAssignments).subscribe(draw => {
+      console.log('success');
       this.router.navigate([`/draw/${draw.id}`]);
+    }, (e) => {
+      this.errors = e.error;
     });
   }
 
-  allRowsChecked() {
-    return this.allowedAssignments
-      .map(row => row.reduce((agg, value) => agg || value, false))
-      .reduce((agg, value) => agg && value, true);
+  allRowsChecked(): boolean {
+    // FIXME: restore validation
+    // return this.allowedAssignments
+    //   .map(row => row.reduce((agg, value) => agg || value, false))
+    //   .reduce((agg, value) => agg && value, true);
+    return true;
   }
 
   allow(i: number, j: number) {
     this.allowedAssignments[j][i] = !this.allowedAssignments[j][i];
+  }
+
+  getErrorMessage() {
+    return this.errors.map(err => Object.values(err.constraints).join('\n'));
   }
 }

@@ -1,9 +1,9 @@
 <div *ngIf="draw">
-  <label>Created on {{ draw.creationDate | date: "dd/MM/yyyy" }}</label>
+  <label>Created on {{ draw.createdAt | date: "dd/MM/yyyy" }}</label>
 
   <div data-testid="assignment" *ngFor="let assignment of draw.assignments">
-    <strong>{{ assignment.from.name }}</strong> gives to
-    <strong>{{ assignment.to.name }}</strong>
+    <strong>{{ assignment.from }}</strong> gives to
+    <strong>{{ assignment.to }}</strong>
   </div>
 </div>
 

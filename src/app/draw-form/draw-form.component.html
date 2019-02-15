@@ -1,10 +1,20 @@
+<mele-error-message *ngIf="errors">
+  {{getErrorMessage()}}
+</mele-error-message>
+
+<div>
+  <input
+    placeholder="Draw name"
+    [(ngModel)]="typedDrawName"
+  />
+</div>
 <div>
   <input
     placeholder="Participant name"
-    [(ngModel)]="typedName"
-    (keyup.enter)="addParticipant(typedName)"
+    [(ngModel)]="typedParticipantName"
+    (keyup.enter)="addParticipant(typedParticipantName)"
   />
-  <button (click)="addParticipant(typedName)">Add participant</button>
+  <button (click)="addParticipant(typedParticipantName)">Add participant</button>
 </div>
 
 <h2>Allowed assignments</h2>
