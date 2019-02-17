@@ -1,9 +1,5 @@
-export class Person {
-  constructor(public name: string) {}
-}
-
 export class Assignment {
-  constructor(public id: string, public from: Person, public to: Person) {}
+  constructor(public id: string, public from: string, public to: string) {}
 }
 
 export class Draw {

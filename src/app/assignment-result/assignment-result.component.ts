@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
-import {Assignment} from '../DrawModel';
+import {Assignment} from '../model/DrawModel';
 import {DrawService} from '../draw.service';
 import {ActivatedRoute} from '@angular/router';
 
