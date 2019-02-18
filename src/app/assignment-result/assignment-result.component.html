@@ -1,10 +1,12 @@
+<mele-spinner *ngIf="loading"></mele-spinner>
+
 <div *ngIf="assignment">
   <span data-testid="from">{{ assignment.from }}</span>
   gives to
   <span data-testid="to">{{ assignment.to }}</span>
 </div>
 
-<mele-error-message *ngIf="!assignment">
+<mele-error-message *ngIf="error && !loading">
   No assignment found for the ID {{ assignmentID }}
 </mele-error-message>
 

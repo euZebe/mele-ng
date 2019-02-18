@@ -33,7 +33,7 @@ export class DrawFormComponent implements OnInit {
     this.drawService.generateDraw(this.typedDrawName, this.participants, this.allowedAssignments).subscribe(draw => {
       console.log('success');
       this.router.navigate([`/draw/${draw.id}`]);
-    }, (e) => {
+    }, e => {
       this.errors = e.error;
     });
   }

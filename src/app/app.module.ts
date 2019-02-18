@@ -10,6 +10,7 @@ import { AssignmentResultComponent } from './assignment-result/assignment-result
 import { HomeComponent } from './home/home.component';
 import { DrawFormComponent } from './draw-form/draw-form.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     AssignmentResultComponent,
     HomeComponent,
     DrawFormComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

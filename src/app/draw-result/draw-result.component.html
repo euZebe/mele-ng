@@ -1,3 +1,5 @@
+<mele-spinner *ngIf="loading"></mele-spinner>
+
 <div *ngIf="draw">
   <label>Created on {{ draw.createdAt | date: "dd/MM/yyyy" }}</label>
 
@@ -7,7 +9,7 @@
   </div>
 </div>
 
-<mele-error-message *ngIf="!draw">
+<mele-error-message *ngIf="error && !loading">
   No draw found for the ID {{ drawID }}
 </mele-error-message>
 

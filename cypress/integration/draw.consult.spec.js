@@ -5,6 +5,10 @@ describe('draw consultation', () => {
       cy.visit('/');
       cy.getByPlaceholderText('draw ID').type(anyID);
       cy.getByText(/view draw/i).click();
+
+      // spinner while data is loading
+      cy.queryByTestId('loading').should('exist');
+
       cy.url().should('eq', `${Cypress.config().baseUrl}/draw/${anyID}`);
 
       cy.getAllByTestId('assignment').should('have.length', body[0].assignments.length);

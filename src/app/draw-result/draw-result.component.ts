@@ -11,6 +11,8 @@ import {Draw} from '../model/DrawModel';
 export class DrawResultComponent implements OnInit {
   drawID: string;
   draw: Draw;
+  loading: boolean;
+  error: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,9 +21,19 @@ export class DrawResultComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.route.params.subscribe(params => {
       this.drawID = params.id;
-      this.drawService.getDraw(params.id).subscribe(draw => (this.draw = draw));
+      this.drawService.getDraw(params.id).subscribe(
+        draw => {
+          this.loading = false;
+          this.draw = draw;
+        },
+        error => {
+          this.loading = false;
+          this.error = error;
+        }
+      );
     });
   }
 }

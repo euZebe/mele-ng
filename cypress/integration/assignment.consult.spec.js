@@ -6,7 +6,12 @@ describe("assignment consultation", () => {
       cy.visit("/");
       cy.getByPlaceholderText("assignment ID").type(anyAssignment.id);
       cy.getByText(/view assignment/i).click();
+
+        // spinner while data is loading
+        cy.queryByTestId('loading').should('exist');
+
       cy.url().should("eq", `${Cypress.config().baseUrl}/assignment/${anyAssignment.id}`);
+
 
       cy.getByTestId("from").should("have.text", anyAssignment.from);
       cy.getByTestId("to").should("have.text", anyAssignment.to);

@@ -12,6 +12,8 @@ import {ActivatedRoute} from '@angular/router';
 export class AssignmentResultComponent implements OnInit {
   assignment: Assignment;
   assignmentID: string;
+  loading: boolean;
+  private error: string;
 
   constructor(
     private location: Location,
@@ -21,11 +23,17 @@ export class AssignmentResultComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.route.params.subscribe(params => {
       this.assignmentID = params.id;
-      this.drawService
-        .getAssignment(params.id)
-        .subscribe(assignment => (this.assignment = assignment));
+      this.drawService.getAssignment(params.id).subscribe(assignment => {
+          this.assignment = assignment;
+          this.loading = false;
+        },
+        error => {
+          this.loading = false;
+          this.error = error;
+        });
     });
   }
 
