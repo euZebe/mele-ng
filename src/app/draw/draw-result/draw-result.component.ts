@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DrawService} from '../draw.service';
-import {Draw} from '../model/DrawModel';
+import {DrawService} from '../../draw.service';
+import {Draw} from '../../model/DrawModel';
 
 @Component({
   selector: 'mele-draw-result',
