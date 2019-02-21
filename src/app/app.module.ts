@@ -22,7 +22,7 @@ import {AppCommonModule} from './app-common/app-common.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AppCommonModule
+    AppCommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
